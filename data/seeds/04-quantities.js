@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         {ingredient_id: 8, recipe_id: 3, amount: 6, measurement: 'each'},
         {ingredient_id: 2, recipe_id: 4, amount: 2, measurement: 'cup'},
         {ingredient_id: 3, recipe_id: 4, amount: 2, measurement: 'cup'},
-        {ingredient_id: 7, recipe_id: 4, amount: 8, measurement: 'ounces'},
+        {ingredient_id: 7, recipe_id: 4, amount: 8, measurement: 'ounces'}
       ]);
 
     });

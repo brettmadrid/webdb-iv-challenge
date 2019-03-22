@@ -12,13 +12,17 @@ module.exports = {
 
   getDish: (id) => {
     return db('dishes')
-    .where({ id })
+    .select('dishes.id as dishID', 'dish_name as Dish', 'recipe_name as Recipe')
+    .innerJoin('recipes', 'dishes.id', 'dish_id')
+    .where({ dishID : id })
   },
 
   addDish: (dish) => {
     return db('dishes')
     .insert({ dish_name: dish })
   }
+
+
 
   // findZoos: () => {
   //   return db('zoos')
