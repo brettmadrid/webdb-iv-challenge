@@ -6,14 +6,19 @@ const db = knex(dbConfig.development);
 
 module.exports = {
 
-  // getDishes: () => {
-  //   return db('dishes')
-  // },
+  getDishes: () => {
+    return db('dishes')
+  },
 
   getDish: (id) => {
     return db('dishes')
     .where({ id })
   },
+
+  addDish: (dish) => {
+    return db('dishes')
+    .insert({ dish_name: dish })
+  }
 
   // findZoos: () => {
   //   return db('zoos')
