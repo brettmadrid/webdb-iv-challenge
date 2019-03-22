@@ -25,12 +25,20 @@ module.exports = {
   getRecipes: () => {
     return db('recipes')
     .innerJoin('dishes', 'dish_id', 'dishes.id')
-  }
+    .innerJoin('quantities', 'recipes.id', 'recipe_id')
+    .innerJoin('ingredients', 'ingredient_id', 'ingredients.id')
+  },
 
-  // findAnimals: () => {
-  //   return db('animals')
-  //   .select('animal_name as name', 'species_name as species', 'zoo_name as zoo')
-  //   .innerJoin('species', 'species.id', 'species_id')
-  //   .innerJoin('zoos', 'zoos.id', 'zoo_id')
-  // }
+  getShoppingList: (RecipeID) => {
+    return db('recipes')
+    .innerJoin('dishes', 'dish_id', 'dishes.id')
+    .innerJoin('quantities', 'recipes.id', 'recipe_id')
+    .innerJoin('ingredients', 'ingredient_id', 'ingredients.id')
+    .where({recipe_id: RecipeID})
+  },
+
+  addRecipe: (dishID) => {
+    return db('recipes')
+    .insert({recipe_name: 'Vegan Pizza', dish_id: dishID})
+  }
 }
