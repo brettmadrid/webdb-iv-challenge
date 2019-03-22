@@ -20,15 +20,12 @@ module.exports = {
   addDish: (dish) => {
     return db('dishes')
     .insert({ dish_name: dish })
+  },
+
+  getRecipes: () => {
+    return db('recipes')
+    .innerJoin('dishes', 'dish_id', 'dishes.id')
   }
-
-
-
-  // findZoos: () => {
-  //   return db('zoos')
-  //   .select('zoo_name as Zoo', 'address')
-  //   .innerJoin('addresses', 'zoos.id', 'zoo_id')
-  // },
 
   // findAnimals: () => {
   //   return db('animals')
